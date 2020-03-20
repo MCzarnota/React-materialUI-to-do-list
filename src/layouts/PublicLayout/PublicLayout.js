@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { NavBar, Footer } from "./components";
+import { NavBar } from "./components";
 import SlideUp from "./components/NavBar/components/SlideUp";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -8,7 +8,7 @@ import SideBar from "./components/SideBar";
 import Content from "./components/Content";
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.paper,
     color: theme.palette.common.white
   },
   applicationHolder: {
@@ -43,7 +43,6 @@ function PublicLayout(props) {
               <KeyboardArrowUpIcon />
             </Fab>
           </SlideUp>
-          <Footer />
         </div>
       </div>
     </div>

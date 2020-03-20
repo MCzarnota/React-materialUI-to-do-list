@@ -83,7 +83,7 @@ const CustomizedPopper = props => {
       }}
     >
       {shouldShow ? <span className={classes.arrow} ref={setArrowRef} /> : null}
-      >{children}
+      {children}
     </Popper>
   );
 };

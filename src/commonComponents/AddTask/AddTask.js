@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 30
   },
   addTaskText: {
-    color: theme.palette.secondary.dark
+    color: theme.palette.common.black
   },
   show: {
     display: "flex"

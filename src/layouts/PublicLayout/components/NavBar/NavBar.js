@@ -66,9 +66,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.dark,
     zIndex: 120
   },
-  inputRoot: {
-    color: "inherit"
-  },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width"),
@@ -76,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     "&:focus": {
       width: 500,
       backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.secondary.contrastText
+      color: "black"
     },
     [theme.breakpoints.up("md")]: {
       width: 200
@@ -96,9 +93,8 @@ const NavBar = props => {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search… ( not yet implemented )"
               classes={{
-                root: classes.inputRoot,
                 input: classes.inputInput
               }}
               inputProps={{ "aria-label": "search" }}

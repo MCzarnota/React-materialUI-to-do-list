@@ -4,14 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import CircleChecked from "@material-ui/icons/CheckCircleOutline";
 import CircleUnchecked from "@material-ui/icons/RadioButtonUnchecked";
 import Checkbox from "@material-ui/core/Checkbox";
-import IconButton from "@material-ui/core/IconButton";
 import ListSubheader from "@material-ui/core/ListSubheader";
-import CommentIcon from "@material-ui/icons/Comment";
 import { AddTask } from "../../../commonComponents";
 import { SnackbarContext } from "../../../context";
 import { COMBINED_TASKS } from "../../../constants";
@@ -30,14 +27,15 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText
   },
   checkBox: {
-    color: "black !important",
     "&:hover": {
-      color: "green !important"
-    }
-  },
-  checkBoxIcon: {
-    "&:hover": {
-      fill: "black !important"
+      "& span": {
+        "& svg": {
+          "& path": {
+            d:
+              "path('M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z')"
+          }
+        }
+      }
     }
   },
   listSubHeader: {
@@ -74,7 +72,6 @@ function Tasks(props) {
   });
 
   const handleSelectedTask = (event, taskId) => {
-    console.log(taskId);
     const archiveTask = () => {
       firebase
         .firestore()
@@ -104,7 +101,6 @@ function Tasks(props) {
           <ListSubheader
             disableGutters
             className={classes.listSubHeader}
-            component="div"
             data-testid="project-name"
             id="nested-list-subheader"
           >
@@ -113,40 +109,34 @@ function Tasks(props) {
         }
       >
         {tasks.map(task => {
-          const labelId = `checkbox-list-label-${0}`;
+          const labelId = `checkbox-list-label-${task.id}`;
 
           return (
             <ListItem
               disableGutters
               className={classes.task}
-              key={task}
+              key={task.id}
               role={undefined}
               dense
               disableRipple
             >
-              <ListItemIcon>
-                <Checkbox
-                  className={classes.checkBox}
-                  icon={<CircleUnchecked />}
-                  checkedIcon={<CircleChecked />}
-                  edge="start"
-                  checked={true}
-                  tabIndex={-1}
-                  value={task.task}
-                  inputProps={{ "aria-labelledby": task.task }}
-                  iconStyle={{ color: "black" }}
-                  onClick={event => {
-                    event.stopPropagation();
-                    handleSelectedTask(event, task.id);
-                  }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={task.task} />
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="comments">
-                  <CommentIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
+              <Checkbox
+                className={classes.checkBox}
+                icon={<CircleUnchecked />}
+                edge="start"
+                tabIndex={-1}
+                value={task.task}
+                inputProps={{ "aria-label": labelId }}
+                onClick={event => {
+                  event.stopPropagation();
+                  handleSelectedTask(event, task.id);
+                }}
+              />
+
+              <ListItemText
+                id={`List item text ${task.id}`}
+                primary={task.task}
+              />
             </ListItem>
           );
         })}

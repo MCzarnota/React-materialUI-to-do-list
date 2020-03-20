@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 266,
     minHeight: "calc(100vh)",
     margin: "0 auto",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.background.default,
+    borderRight: "1px solid" + " " + theme.palette.background.default,
     [theme.breakpoints.down("md")]: {
       width: "calc(100vw - 266px - 42px)",
       marginLeft: 308

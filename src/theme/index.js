@@ -1,17 +1,19 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import palette from "./palette";
 import paletteDark from "./paletteDark";
 import typography from "./typography";
 
 // read more at https://material-ui.com/customization/themes
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: palette,
   typography
 });
+theme = responsiveFontSizes(theme);
 
-export const darkTheme = createMuiTheme({
+let darkTheme = createMuiTheme({
   palette: paletteDark,
   typography
 });
-
+darkTheme = responsiveFontSizes(darkTheme);
+export { darkTheme };
 export default theme;
