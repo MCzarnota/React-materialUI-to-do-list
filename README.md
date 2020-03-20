@@ -10,7 +10,7 @@ MongoDB, Expressjs, React/Redux, Nodejs, MaterialUI
 To do list is a clone of existing web app transformed into react components
 
 - Create daily tasks
-- Login functionality
+- Set the tasks based on the timeline
 - Dark Theme UI
 
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
@@ -82,12 +82,7 @@ To do lsit is currently extended with the following plugins. Instructions on how
 
 ### Server
 
-| Plugin       | README                                                                                             |
-| ------------ | -------------------------------------------------------------------------------------------------- |
-| express      | [plugins/express/README.md](https://github.com/expressjs/express/blob/master/Readme.md)            |
-| jsonwebtoken | [plugins/jsonwebtoken/README.md](https://github.com/auth0/node-jsonwebtoken/blob/master/README.md) |
-| mongoose     | [plugins/mongoose/README.md](https://github.com/Automattic/mongoose/blob/master/README.md)         |
-| nodemon      | [plugins/nodemon/README.md](https://github.com/remy/nodemon/blob/master/README.md)                 |
+Firebase (https://firebase.google.com/)
 
 ### Client
 
@@ -102,6 +97,7 @@ To do lsit is currently extended with the following plugins. Instructions on how
 ### Todos
 
 - Write Tests
+- Complete search functionality
 
 # Screenshots!
 
